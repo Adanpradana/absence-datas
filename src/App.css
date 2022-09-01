@@ -1,38 +1,92 @@
-.App {
-  text-align: center;
+.main {
+  display: flex;
+  height: 100vh;
+}
+.sidebar {
+  width: 250px;
+  height: 100%;
+  background-color: #242933;
+  color: #eaeaea;
+  overflow: auto;
+  z-index: 12;
+}
+.container {
+  background-color: #eaeaea;
+  flex: auto;
+  position: relative;
+}
+.container-navbar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 1px solid #aaaaaa;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 11;
+  background-color: whitesmoke;
+}
+.container-content {
+  padding-top: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.bi {
+  padding: 10px;
+  font-size: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* sidebar */
+.sidebar {
   display: flex;
   flex-direction: column;
+}
+.sidebar-item-logo {
+  height: 64px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.sidebar-content {
+  display: block;
+  justify-content: space-between;
+  padding: 0.8em 1em;
+  transition: background-color 0.3s;
+}
+.sidebar-content:hover {
+  background-color: #1c152c;
+}
+.sidebar-content .sidebar-title i {
+  display: inline-block;
+  width: 1.7em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sidebar-content .toogle-btn {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.sidebar-content.open .sidebar-title .toogle-btn {
+  transform: rotate(-90deg);
+}
+
+.sidebar-title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.sidebar-subnav {
+  padding-top: 0.3em;
+  height: 0;
+  overflow: hidden;
+}
+
+.sidebar-content.open .sidebar-subnav {
+  height: auto;
 }
