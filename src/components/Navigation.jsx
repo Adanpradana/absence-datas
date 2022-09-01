@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Subnav from "./Subnav";
-import datas from "../data/SidebarData";
+
 const Navigation = ({ props }) => {
   const [open, setOpen] = useState(false);
   const clicked = () => {
