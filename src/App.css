@@ -53,12 +53,10 @@
 
 .sidebar-content {
   display: block;
-  justify-content: space-between;
-  padding: 0.8em 1em;
   transition: background-color 0.3s;
 }
 .sidebar-content:hover {
-  background-color: #1c152c;
+  /* background-color: #1c152c; */
 }
 .sidebar-content .sidebar-title i {
   display: inline-block;
@@ -71,7 +69,7 @@
 }
 
 .sidebar-content.open .sidebar-title .toogle-btn {
-  transform: rotate(-90deg);
+  transform: rotate(180deg);
 }
 
 .sidebar-title {
@@ -79,8 +77,13 @@
   justify-content: space-between;
   font-size: 1.2rem;
   cursor: pointer;
+  padding: 0.8em 0.5em;
+  transition: background-color 0.3s;
 }
 
+.sidebar-title:hover {
+  background-color: #1c152c;
+}
 .sidebar-subnav {
   padding-top: 0.3em;
   height: 0;
@@ -89,4 +92,16 @@
 
 .sidebar-content.open .sidebar-subnav {
   height: auto;
+  margin-left: 0.8em;
+}
+.subnav-open {
+  padding: 1em;
+  display: block;
+}
+.subnav-open i {
+  padding-right: 10px;
+}
+.subnav-open:hover {
+  background-color: #1c152c;
+  cursor: pointer;
 }

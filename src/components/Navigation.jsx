@@ -17,7 +17,7 @@ const Navigation = ({ props }) => {
           </span>
           <i className="bi-chevron-down toogle-btn" onClick={clicked}></i>
         </div>
-        <div className="sidebar-subnav toogle-btn ">
+        <div className="sidebar-subnav ">
           {props.SubNav.map((subNav, i) => {
             return <Subnav key={i} {...subNav} subNav={subNav} />;
           })}
