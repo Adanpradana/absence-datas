@@ -1,15 +1,13 @@
-import { Outlet } from "react-router-dom";
-
-const Home = () => {
+const Division = () => {
   return (
     <section className="container">
       <div className="container-navbar">
         <i className="bi bi-person-circle"></i>
       </div>
       <div className="container-content">
-        <h1>HELLO CONTENT</h1>
+        <h1>DIVISION</h1>
       </div>
     </section>
   );
 };
-export default Home;
+export default Division;

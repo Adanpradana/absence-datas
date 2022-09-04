@@ -1,47 +1,60 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
+import Absence from "../components/Absence";
+import Division from "../components/Division";
+import Employee from "../components/Employee";
+import Home from "../components/Home";
+import JobPosition from "../components/JobPosition";
+import WorkSchedule from "../components/WorkSchedule";
+
 const SidebarData = [
   {
     title: "Home",
     path: "/",
     icon: "bi-house-fill",
+    element: <Home />,
   },
   {
     title: "Employee",
-    path: "#",
     icon: "bi-person-bounding-box",
     dropdown: "chevron-down toogle-btn",
-    SubNav: [
+    children: [
       {
         title: "Employee Details",
-        path: "employee/details",
+        path: "details",
         icon: "bi-person-lines-fill",
+        element: <Employee />,
       },
       {
         title: "Division",
-        path: "employee/division",
+        path: "division",
         icon: "bi-diagram-3-fill",
+        element: <Division />,
       },
       {
         title: "Job Position",
-        path: "/employee/Job-position",
+        path: "job-position",
         icon: "bi-briefcase-fill",
+        element: <JobPosition />,
       },
       {
         title: "Work Schedule",
-        path: "/employee/work-schedule",
+        path: "work-schedule",
         icon: "bi-calendar2-check-fill",
+        element: <WorkSchedule />,
       },
     ],
   },
   {
     title: "Absence",
-    path: "/abesence",
+    path: "/absence",
     icon: "bi-clock-history",
+    element: <Absence />,
   },
   {
     title: "Logout",
     path: "/logout",
     icon: "bi-power",
+    element: null,
   },
 ];
 

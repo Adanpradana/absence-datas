@@ -1,15 +1,13 @@
-import { Outlet } from "react-router-dom";
-
-const Home = () => {
+const JobPosition = () => {
   return (
     <section className="container">
       <div className="container-navbar">
         <i className="bi bi-person-circle"></i>
       </div>
       <div className="container-content">
-        <h1>HELLO CONTENT</h1>
+        <h1>JOB POSITION</h1>
       </div>
     </section>
   );
 };
-export default Home;
+export default JobPosition;

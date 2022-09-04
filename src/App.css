@@ -94,14 +94,19 @@
   height: auto;
   margin-left: 0.8em;
 }
-.subnav-open {
+.children-open {
   padding: 1em;
   display: block;
 }
-.subnav-open i {
+.children-open i {
   padding-right: 10px;
 }
-.subnav-open:hover {
+.children-open:hover {
   background-color: #1c152c;
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #eaeaea;
 }

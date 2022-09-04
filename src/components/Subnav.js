@@ -1,16 +1,17 @@
-const Subnav = ({ subNav }) => {
+import { Link } from "react-router-dom";
 
-
-
-
-    
+const Subnav = ({ child }) => {
   return (
-    <div className="subnav-open">
-      <span>
-        {subNav.icon && <i className={subNav.icon}></i>}
-        {subNav.title}
-      </span>
-    </div>
+    <>
+      <Link to={child.path}>
+        <div className="children-open">
+          <span>
+            {child.icon && <i className={child.icon}></i>}
+            {child.title}
+          </span>
+        </div>
+      </Link>
+    </>
   );
 };
 export default Subnav;
