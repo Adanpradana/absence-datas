@@ -57,39 +57,7 @@
             "Width": "88"
           }
         },
-        {
-          "_attributes": {
-            "Name": "dbg_pegawaijdw_kerja_m_mulai",
-            "Caption": "Tgl. Mulai Jadwal",
-            "Index": "6",
-            "BandIndex": "0",
-            "RowIndex": "0",
-            "ColIndex": "4",
-            "Width": "105"
-          }
-        },
-        {
-          "_attributes": {
-            "Name": "dbg_pegawaitempat_lahir",
-            "Caption": "Tempat Lahir",
-            "Index": "7",
-            "BandIndex": "0",
-            "RowIndex": "0",
-            "ColIndex": "5",
-            "Width": "85"
-          }
-        },
-        {
-          "_attributes": {
-            "Name": "dbg_pegawaitgl_lahir",
-            "Caption": "Tanggal Lahir",
-            "Index": "8",
-            "BandIndex": "0",
-            "RowIndex": "0",
-            "ColIndex": "6",
-            "Width": "88"
-          }
-        },
+
         {
           "_attributes": {
             "Name": "dbg_pegawaipembagian1_nama",
@@ -123,39 +91,7 @@
             "Width": "66"
           }
         },
-        {
-          "_attributes": {
-            "Name": "dbg_pegawaipegawai_pwd",
-            "Caption": "Password",
-            "Index": "12",
-            "BandIndex": "0",
-            "RowIndex": "0",
-            "ColIndex": "10",
-            "Width": "73"
-          }
-        },
-        {
-          "_attributes": {
-            "Name": "dbg_pegawaipegawai_rfid",
-            "Caption": "RFID",
-            "Index": "13",
-            "BandIndex": "0",
-            "RowIndex": "0",
-            "ColIndex": "11",
-            "Width": "56"
-          }
-        },
-        {
-          "_attributes": {
-            "Name": "dbg_pegawaipegawai_telp",
-            "Caption": "No. Telp",
-            "Index": "14",
-            "BandIndex": "0",
-            "RowIndex": "0",
-            "ColIndex": "12",
-            "Width": "80"
-          }
-        },
+
         {
           "_attributes": {
             "Name": "dbg_pegawaipriv",
@@ -165,116 +101,6 @@
             "RowIndex": "0",
             "ColIndex": "13",
             "Width": "63"
-          }
-        },
-        {
-          "_attributes": {
-            "Name": "dbg_pegawaistatus_peg",
-            "Caption": "Status Pegawai",
-            "Index": "16",
-            "BandIndex": "0",
-            "RowIndex": "0",
-            "ColIndex": "14",
-            "Width": "99"
-          }
-        },
-        {
-          "_attributes": {
-            "Name": "dbg_pegawaijml_alg_10",
-            "Caption": "FP ZK",
-            "Index": "17",
-            "BandIndex": "0",
-            "RowIndex": "0",
-            "ColIndex": "15",
-            "Width": "52"
-          }
-        },
-        {
-          "_attributes": {
-            "Name": "dbg_pegawaijml_alg_19",
-            "Caption": "FP Neo",
-            "Index": "18",
-            "BandIndex": "0",
-            "RowIndex": "0",
-            "ColIndex": "16",
-            "Width": "57"
-          }
-        },
-        {
-          "_attributes": {
-            "Name": "dbg_pegawaijml_alg_39",
-            "Caption": "FP Revo",
-            "Index": "19",
-            "BandIndex": "0",
-            "RowIndex": "0",
-            "ColIndex": "17",
-            "Width": "63"
-          }
-        },
-        {
-          "_attributes": {
-            "Name": "dbg_pegawaijml_alg_49",
-            "Caption": "FP Livo",
-            "Index": "20",
-            "BandIndex": "0",
-            "RowIndex": "0",
-            "ColIndex": "18",
-            "Width": "58"
-          }
-        },
-        {
-          "_attributes": {
-            "Name": "dbg_pegawaijml_alg_99",
-            "Caption": "FP UareU",
-            "Index": "21",
-            "BandIndex": "0",
-            "RowIndex": "0",
-            "ColIndex": "19",
-            "Width": "68"
-          }
-        },
-        {
-          "_attributes": {
-            "Name": "dbg_pegawaijml_face",
-            "Caption": "Wajah",
-            "Index": "22",
-            "BandIndex": "0",
-            "RowIndex": "0",
-            "ColIndex": "20",
-            "Width": "53"
-          }
-        },
-        {
-          "_attributes": {
-            "Name": "dbg_pegawaijml_vein",
-            "Caption": "Telapak Tangan",
-            "Index": "23",
-            "BandIndex": "0",
-            "RowIndex": "0",
-            "ColIndex": "21",
-            "Width": "99"
-          }
-        },
-        {
-          "_attributes": {
-            "Name": "dbg_pegawaitgl_masuk_pertama",
-            "Caption": "Tgl. Masuk Kerja",
-            "Index": "24",
-            "BandIndex": "0",
-            "RowIndex": "0",
-            "ColIndex": "22",
-            "Width": "102"
-          }
-        },
-        {
-          "_attributes": {
-            "Name": "dbg_pegawaikontrak_end",
-            "Caption": "Tgl. Akhir Kontrak",
-            "Index": "25",
-            "BandIndex": "0",
-            "RowIndex": "0",
-            "ColIndex": "23",
-            "Width": "108"
           }
         }
       ]
