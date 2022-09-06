@@ -1,6 +1,27 @@
+import { useState } from "react";
+import { useEffect } from "react";
 import { Children } from "react";
 import datas from "../data/employee.json";
+import TableBody from "./TableBody";
 const Employee = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerpage, setPostPerpage] = useState(9);
+  const [loading, setLoading] = useState(false);
+  const [tableHeader, setTableHeader] = useState([]);
+  const [posts, setPost] = useState([]);
+
+  useEffect(() => {
+    setLoading(true);
+    setTableHeader(datas.GRID.COLUMNS.COLUMN);
+    setPost(datas.GRID.ROWS.ROW);
+    setLoading(false);
+  }, []);
+
+  // slicing setDatas
+  const postsLastIndex = currentPage * postPerpage;
+  const postsFirstIndex = postsLastIndex - postPerpage;
+  const currentPost = posts.slice(postsFirstIndex, postsLastIndex);
+
   return (
     <section className="container">
       <div className="container-navbar">
@@ -13,30 +34,27 @@ const Employee = () => {
             <table>
               <thead>
                 <tr>
-                  {datas.GRID.COLUMNS.COLUMN.map((response, i) => (
-                    <th key={i}>{response._attributes.Caption}</th>
+                  {tableHeader.map((res, i) => (
+                    <th key={i}>{res._attributes.Caption}</th>
                   ))}
                   <th>Action</th>
                 </tr>
               </thead>
-              {Children.toArray(
-                datas.GRID.ROWS.ROW.map((data) => (
-                  <tbody>
-                    <tr>
-                      <td>{data._attributes.dbg_pegawaipegawai_nip}</td>
-                      <td>{data._attributes.dbg_pegawaipegawai_pin}</td>
-                      <td>{data._attributes.dbg_pegawaipegawai_nama}</td>
-                      <td>{data._attributes.dbg_pegawaijdw_kerja_m_name}</td>
-                      <td></td>
-                      <td>{data._attributes.dbg_pegawaipembagian2_nama}</td>
-                      <td>{data._attributes.dbg_pegawaipembagian3_nama}</td>
-                      <td>{data._attributes.dbg_pegawaipriv}</td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                ))
-              )}
+
+              <TableBody posts={currentPost} loading={loading} />
             </table>
+          </div>
+          <div className="container-pagination">
+            <div className="pagination-showing-data">showing data 1-10 entries</div>
+            <div className="pagination-button-wrapper">
+              <button>previous</button>
+              <button>1</button>
+              <button>2</button>
+              <button>3</button>
+              <button>4</button>
+              <button>5</button>
+              <button>next</button>
+            </div>
           </div>
         </div>
       </div>

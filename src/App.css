@@ -29,7 +29,6 @@
 .container-content {
   padding-top: 64px;
   display: flex;
-  height: 100vh;
   flex: auto;
 }
 
@@ -42,6 +41,7 @@
 .sidebar {
   display: flex;
   flex-direction: column;
+  position: fixed;
 }
 .sidebar-item-logo {
   height: 64px;
@@ -113,6 +113,7 @@ a {
 /* container */
 .container-content {
   background-color: #ebebeb;
+  margin-left: 250px;
 }
 .container-table {
   padding: 10px;
@@ -120,9 +121,9 @@ a {
   width: 100%;
   margin: 10px;
   box-shadow: 0px 0px 10px #00000029;
-  height: 100vh;
+  height: 100%;
 }
-table,
+
 th {
   border: 1px solid #aaaaaa;
   border-collapse: collapse;
@@ -138,4 +139,10 @@ th {
 }
 td {
   padding: 0.8em 1em;
+}
+
+/* pagination */
+.container-pagination {
+  display: flex;
+  justify-content: space-between;
 }
