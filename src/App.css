@@ -118,10 +118,10 @@ a {
 .container-table {
   padding: 10px;
   background-color: #ffffff;
-  width: 100%;
   margin: 10px;
   box-shadow: 0px 0px 10px #00000029;
-  height: 100%;
+  flex-direction: column;
+  justify-content: center;
 }
 
 th {
@@ -145,4 +145,23 @@ td {
 .container-pagination {
   display: flex;
   justify-content: space-between;
+}
+.pagination-button {
+  font-size: 0.9rem;
+  padding: 0.3em;
+  width: 2em;
+  height: 2em;
+  border: 1px solid #4a58a3;
+  color: #242933;
+  cursor: pointer;
+}
+.pagination-button-wrapper {
+  width: 22em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination-button.active {
+  background-color: #4a58a3;
+  color: #eaeaea;
 }

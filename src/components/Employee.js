@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { Children } from "react";
+
 import datas from "../data/employee.json";
+import Pagination from "./Pagination";
 import TableBody from "./TableBody";
 const Employee = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerpage, setPostPerpage] = useState(9);
+  const [postPerpage] = useState(8);
   const [loading, setLoading] = useState(false);
   const [tableHeader, setTableHeader] = useState([]);
   const [posts, setPost] = useState([]);
@@ -22,6 +23,7 @@ const Employee = () => {
   const postsFirstIndex = postsLastIndex - postPerpage;
   const currentPost = posts.slice(postsFirstIndex, postsLastIndex);
 
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <section className="container">
       <div className="container-navbar">
@@ -45,16 +47,10 @@ const Employee = () => {
             </table>
           </div>
           <div className="container-pagination">
-            <div className="pagination-showing-data">showing data 1-10 entries</div>
-            <div className="pagination-button-wrapper">
-              <button>previous</button>
-              <button>1</button>
-              <button>2</button>
-              <button>3</button>
-              <button>4</button>
-              <button>5</button>
-              <button>next</button>
+            <div className="pagination-showing-data">
+              page {currentPage}/{postPerpage}
             </div>
+            <Pagination pages={postPerpage} totalPost={posts.length} paginate={paginate} currentPage={currentPage} />
           </div>
         </div>
       </div>

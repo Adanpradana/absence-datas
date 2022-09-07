@@ -19,7 +19,7 @@ const TableBody = ({ posts, loading }) => {
                 <td key={res.Index}>{res._attributes.dbg_pegawaipembagian2_nama}</td>
                 <td key={res.Index}>{res._attributes.dbg_pegawaipembagian3_nama}</td>
                 <td key={res.Index}>{res._attributes.dbg_pegawaipriv}</td>
-                <td key={res.Index}>edit, delete</td>
+                <td key={res.Index}></td>
               </tr>
             );
           })
