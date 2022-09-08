@@ -6,10 +6,11 @@ import Pagination from "./Pagination";
 import TableBody from "./TableBody";
 const Employee = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerpage] = useState(8);
+  const [postPerpage] = useState(9);
   const [loading, setLoading] = useState(false);
   const [tableHeader, setTableHeader] = useState([]);
   const [posts, setPost] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     setLoading(true);
@@ -18,12 +19,18 @@ const Employee = () => {
     setLoading(false);
   }, []);
 
-  // slicing setDatas
+  const searchHandler = (event) => {
+    setSearch(event.target.value);
+  };
+
+  // slicing setDatas and filter
+  const filterIndex = posts.filter((req) => req._attributes.dbg_pegawaipegawai_nama.toLowerCase().includes(search));
   const postsLastIndex = currentPage * postPerpage;
   const postsFirstIndex = postsLastIndex - postPerpage;
-  const currentPost = posts.slice(postsFirstIndex, postsLastIndex);
+  const currentPost = filterIndex.slice(postsFirstIndex, postsLastIndex);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <section className="container">
       <div className="container-navbar">
@@ -31,9 +38,14 @@ const Employee = () => {
       </div>
       <div className="container-content">
         <div className="container-table">
-          <h3>Employee Details</h3>
+          <div className="input-form">
+            <h3>Employee Details</h3>
+            <form action="" method="get">
+              <input type="text" placeholder="search" onChange={searchHandler} />
+            </form>
+          </div>
           <div className="table-wrapper">
-            <table>
+            <table className="table-content">
               <thead>
                 <tr>
                   {tableHeader.map((res, i) => (
@@ -42,8 +54,7 @@ const Employee = () => {
                   <th>Action</th>
                 </tr>
               </thead>
-
-              <TableBody posts={currentPost} loading={loading} />
+              <TableBody posts={currentPost} loading={loading} search={search} />
             </table>
           </div>
           <div className="container-pagination">
