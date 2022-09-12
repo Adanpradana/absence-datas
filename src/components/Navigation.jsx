@@ -16,6 +16,7 @@ const Navigation = ({ props }) => {
             {props.icon && <i className={props.icon}></i>}
             {props.title}
           </span>
+
           <i className="bi-chevron-down toogle-btn" onClick={clicked}></i>
         </div>
         <div className="sidebar-subnav ">

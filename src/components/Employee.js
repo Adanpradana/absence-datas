@@ -1,22 +1,28 @@
+import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
-
-import datas from "../data/employee.json";
 import Pagination from "./Pagination";
 import TableBody from "./TableBody";
 const Employee = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerpage] = useState(9);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [tableHeader, setTableHeader] = useState([]);
   const [posts, setPost] = useState([]);
   const [search, setSearch] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    setLoading(true);
-    setTableHeader(datas.GRID.COLUMNS.COLUMN);
-    setPost(datas.GRID.ROWS.ROW);
-    setLoading(false);
+    axios({
+      method: "GET",
+      url: "http://localhost:5000/main-api",
+    })
+      .then((res) => {
+        setTableHeader(res.data.GRID.COLUMNS.COLUMN);
+        setPost(res.data.GRID.ROWS.ROW);
+      })
+      .catch((error) => setError(error.code))
+      .finally(() => setLoading(false));
   }, []);
 
   const searchHandler = (event) => {
@@ -54,7 +60,9 @@ const Employee = () => {
                   <th>Action</th>
                 </tr>
               </thead>
-              <TableBody posts={currentPost} loading={loading} search={search} />
+              <tbody>
+                <TableBody posts={currentPost} loading={loading} search={search} />
+              </tbody>
             </table>
           </div>
           <div className="container-pagination">
