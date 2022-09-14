@@ -1,7 +1,19 @@
 import { Children } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
-
+import { Link, useParams } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 const TableBody = ({ posts, loading, search }) => {
+  const params = useParams();
+  const [post, setPost] = useState({});
+
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: `http://localhost:5000/main-api/${params.dbg_pegawaipegawai_pin}`,
+    }).then((res) => console.log(res.data));
+  }, [params]);
   if (loading) {
     return (
       <>
@@ -26,9 +38,11 @@ const TableBody = ({ posts, loading, search }) => {
               <td key={res.Index}>{res._attributes.dbg_pegawaipembagian3_nama}</td>
               <td key={res.Index}>{res._attributes.dbg_pegawaipriv}</td>
               <td key={res.Index} className="text-center">
-                <span>
-                  <i className="bi-info-circle"></i>
-                </span>
+                <Link to="details">
+                  <span>
+                    <i className="bi-info-circle"></i>
+                  </span>
+                </Link>
               </td>
             </tr>
           );

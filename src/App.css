@@ -23,7 +23,6 @@
   border-bottom: 1px solid #aaaaaa;
   position: fixed;
   top: 0;
-  right: 0;
   z-index: 11;
   background-color: whitesmoke;
 }
@@ -185,13 +184,26 @@ a {
 
 .text-center {
   text-align: center;
-  cursor: pointer;
 }
-
+.bi-info-circle {
+  cursor: pointer;
+  color: #242933;
+}
 .input-form {
   display: flex;
   justify-content: space-between;
 }
 .table-notfound {
   color: red;
+}
+.details {
+  height: 100vh;
+  flex-direction: column;
+}
+.container-navbar {
+  padding: 10px;
+}
+.navbar-details {
+  justify-content: flex-start;
+  margin-left: 250px;
 }

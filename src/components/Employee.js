@@ -15,17 +15,17 @@ const Employee = () => {
   useEffect(() => {
     axios({
       method: "GET",
-      url: "http://localhost:5000/main-api",
+      url: "http://localhost:5000",
     })
       .then((res) => {
         setTableHeader(res.data.GRID.COLUMNS.COLUMN);
         setPost(res.data.GRID.ROWS.ROW);
       })
-      .catch((error) => setError(error.code))
+      // .catch((error) => setError(error.code))
       .finally(() => setLoading(false));
   }, []);
-
   const searchHandler = (event) => {
+    event.preventDefault();
     setSearch(event.target.value);
   };
 

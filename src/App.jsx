@@ -1,16 +1,31 @@
-import { useRoutes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Sidebar from "./components/Sidebar";
-import SidebarData from "./data/SidebarData";
+
+import Home from "./components/Home";
+import Employee from "./components/Employee";
+import Details from "./components/Sidebar-component/Details";
+import Division from "./components/Division";
+import Absence from "./components/Absence";
 
 function App() {
-  let element = useRoutes(SidebarData);
   return (
     <div className="App">
       <div className="main">
         <Sidebar />
-        {element}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route>
+            <Route path="employee" element={<Employee />}></Route>
+            <Route path="employee/details" element={<Details />} />
+            <Route path="division" element={<Division />} />
+            <Route path="job-position" />
+            <Route path="schedule" />
+          </Route>
+          <Route path="absence" element={<Absence />} />
+          <Route path="logout" />
+        </Routes>
       </div>
     </div>
   );

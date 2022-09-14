@@ -4,6 +4,7 @@ import Division from "../components/Division";
 import Employee from "../components/Employee";
 import Home from "../components/Home";
 import JobPosition from "../components/JobPosition";
+import Details from "../components/Sidebar-component/Details";
 import WorkSchedule from "../components/WorkSchedule";
 
 const SidebarData = [
@@ -20,27 +21,23 @@ const SidebarData = [
     children: [
       {
         title: "Employee Details",
-        path: "details",
+        path: "employee",
         icon: "bi-person-lines-fill",
-        element: <Employee />,
       },
       {
         title: "Division",
         path: "division",
         icon: "bi-diagram-3-fill",
-        element: <Division />,
       },
       {
         title: "Job Position",
         path: "job-position",
         icon: "bi-briefcase-fill",
-        element: <JobPosition />,
       },
       {
         title: "Work Schedule",
         path: "work-schedule",
         icon: "bi-calendar2-check-fill",
-        element: <WorkSchedule />,
       },
     ],
   },
@@ -48,13 +45,11 @@ const SidebarData = [
     title: "Absence",
     path: "/absence",
     icon: "bi-clock-history",
-    element: <Absence />,
   },
   {
     title: "Logout",
     path: "/logout",
     icon: "bi-power",
-    element: null,
   },
 ];
 
