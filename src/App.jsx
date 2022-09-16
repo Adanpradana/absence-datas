@@ -18,7 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route>
             <Route path="employee" element={<Employee />}></Route>
-            <Route path="employee/details" element={<Details />} />
+            <Route path="employee/:dbg_pegawaipegawai_pin" element={<Details />} />
             <Route path="division" element={<Division />} />
             <Route path="job-position" />
             <Route path="schedule" />
