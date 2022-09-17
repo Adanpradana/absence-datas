@@ -30,11 +30,10 @@ const Employee = () => {
   };
 
   // slicing setDatas and filter
-  const filterIndex = posts.filter((req) => req._attributes.dbg_pegawaipegawai_nama.toLowerCase().includes(search));
+  const filterIndex = posts.filter((req) => req._attributes.dbg_pegawaipegawai_nama.toUpperCase().includes(search));
   const postsLastIndex = currentPage * postPerpage;
   const postsFirstIndex = postsLastIndex - postPerpage;
   const currentPost = filterIndex.slice(postsFirstIndex, postsLastIndex);
-
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
