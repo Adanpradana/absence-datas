@@ -1,6 +1,16 @@
 import { Children } from "react";
 
 const Filter = ({ setSearch, posts, setFilter }) => {
+  const division = () => {
+    let newDivision = [];
+    posts.forEach((response) => {
+      if (!newDivision.includes(response.dbg_pegawaipembagian2_nama)) {
+        newDivision.push(response.dbg_pegawaipembagian2_nama);
+      }
+    });
+    return newDivision;
+  };
+
   const searchHandler = (event) => {
     event.preventDefault();
     setSearch(event.target.value);
@@ -15,11 +25,11 @@ const Filter = ({ setSearch, posts, setFilter }) => {
       <h3>Employee Details</h3>
       <form action="" method="get">
         <select name="Divisi" id="" onChange={divisionHandler}>
-          <option selected disabled value="disabled">
-            --Divisi--
+          <option value="disabled" disabled>
+            -- Select Division --
           </option>
           <option value="All">All</option>
-          {Children.toArray(posts.map((res) => <option value={res.dbg_pegawaipembagian2_nama}>{res.dbg_pegawaipembagian2_nama}</option>))}
+          {Children.toArray(division().map((res) => <option value={res}>{res}</option>))}
         </select>
         <input type="text" placeholder="search" onChange={searchHandler} />
       </form>

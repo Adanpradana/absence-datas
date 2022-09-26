@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Children, useState } from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import Pagination from "./Pagination";
 import Filter from "./Sidebar-component/Employee-filter";
@@ -12,7 +12,7 @@ const Employee = () => {
   const [tableHeader, setTableHeader] = useState([]);
   const [posts, setPost] = useState([]);
   const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState("All");
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -37,9 +37,10 @@ const Employee = () => {
     } else if (filter === "All") {
       return res;
     } else {
-      return !res.dbg_pegawaipembagian2_nama;
+      return !res;
     }
   });
+
   const filtering = filterDivision.filter((datas) => datas.dbg_pegawaipegawai_nama.toLowerCase().includes(search.toLowerCase()));
   const lastIndex = currentPage * postPerpage;
   const firstIndex = lastIndex - postPerpage;
