@@ -1,15 +1,18 @@
 import axios from "axios";
-import { useState } from "react";
+import { Children, useState } from "react";
 import { useEffect } from "react";
 import Pagination from "./Pagination";
+import Filter from "./Sidebar-component/Employee-filter";
 import TableBody from "./TableBody";
+
 const Employee = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerpage] = useState(9);
+  const [postPerpage] = useState(8);
   const [loading, setLoading] = useState(true);
   const [tableHeader, setTableHeader] = useState([]);
   const [posts, setPost] = useState([]);
   const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("");
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -19,21 +22,29 @@ const Employee = () => {
     })
       .then((res) => {
         setTableHeader(res.data.GRID.COLUMNS.COLUMN);
-        setPost(res.data.GRID.ROWS.ROW);
       })
-      // .catch((error) => setError(error.code))
       .finally(() => setLoading(false));
-  }, []);
-  const searchHandler = (event) => {
-    event.preventDefault();
-    setSearch(event.target.value);
-  };
 
-  // slicing setDatas and filter
-  const filterIndex = posts.filter((req) => req._attributes.dbg_pegawaipegawai_nama.toUpperCase().includes(search));
-  const postsLastIndex = currentPage * postPerpage;
-  const postsFirstIndex = postsLastIndex - postPerpage;
-  const currentPost = filterIndex.slice(postsFirstIndex, postsLastIndex);
+    axios({
+      method: "GET",
+      url: "http://localhost:5000/main-api/v1/employee",
+    }).then((res) => setPost(res.data));
+  }, []);
+
+  const filterDivision = posts.filter((res) => {
+    if (filter === res.dbg_pegawaipembagian2_nama) {
+      return res.dbg_pegawaipembagian2_nama;
+    } else if (filter === "All") {
+      return res;
+    } else {
+      return !res.dbg_pegawaipembagian2_nama;
+    }
+  });
+  const filtering = filterDivision.filter((datas) => datas.dbg_pegawaipegawai_nama.toLowerCase().includes(search.toLowerCase()));
+  const lastIndex = currentPage * postPerpage;
+  const firstIndex = lastIndex - postPerpage;
+  const currentPosts = filtering.slice(firstIndex, lastIndex);
+
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
@@ -43,12 +54,7 @@ const Employee = () => {
       </div>
       <div className="container-content">
         <div className="container-table">
-          <div className="input-form">
-            <h3>Employee Details</h3>
-            <form action="" method="get">
-              <input type="text" placeholder="search" onChange={searchHandler} />
-            </form>
-          </div>
+          <Filter setSearch={setSearch} posts={posts} setFilter={setFilter} />
           <div className="table-wrapper">
             <table className="table-content">
               <thead>
@@ -60,13 +66,19 @@ const Employee = () => {
                 </tr>
               </thead>
               <tbody>
-                <TableBody posts={currentPost} loading={loading} search={search} />
+                {posts.length === 0 ? (
+                  <tr>
+                    <td colSpan={9}>no data found...</td>
+                  </tr>
+                ) : (
+                  <TableBody posts={currentPosts} loading={loading} search={search} />
+                )}
               </tbody>
             </table>
           </div>
           <div className="container-pagination">
             <div className="pagination-showing-data">
-              page {currentPage}/{postPerpage}
+              page {currentPage}/{posts.length}
             </div>
             <Pagination pages={postPerpage} totalPost={posts.length} paginate={paginate} currentPage={currentPage} />
           </div>
