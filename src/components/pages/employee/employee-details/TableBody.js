@@ -14,7 +14,6 @@ const TableBody = ({ posts, loading, search }) => {
   }
   return (
     <>
-    
       {Children.toArray(
         posts.map((res) => (
           <tr>

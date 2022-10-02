@@ -1,8 +1,7 @@
 import axios from "axios";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import Pagination from "./Pagination";
-import Filter from "./Sidebar-component/Employee-filter";
+import Filter from "./Employee-filter";
 import TableBody from "./TableBody";
 
 const Employee = () => {
@@ -10,10 +9,12 @@ const Employee = () => {
   const [postPerpage] = useState(8);
   const [loading, setLoading] = useState(true);
   const [tableHeader, setTableHeader] = useState([]);
+  const [pages, setPages] = useState("");
   const [posts, setPost] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
-  const [error, setError] = useState("");
+
+  // const [error, setError] = useState("");
 
   useEffect(() => {
     axios({
@@ -35,9 +36,9 @@ const Employee = () => {
     if (filter === res.dbg_pegawaipembagian2_nama) {
       return res.dbg_pegawaipembagian2_nama;
     } else if (filter === "All") {
-      return res;
+      return posts;
     } else {
-      return !res;
+      return !posts;
     }
   });
 
@@ -72,16 +73,13 @@ const Employee = () => {
                     <td colSpan={9}>no data found...</td>
                   </tr>
                 ) : (
-                  <TableBody posts={currentPosts} loading={loading} search={search} />
+                  <TableBody posts={currentPosts} loading={loading} />
                 )}
               </tbody>
             </table>
           </div>
           <div className="container-pagination">
-            <div className="pagination-showing-data">
-              page {currentPage}/{posts.length}
-            </div>
-            <Pagination pages={postPerpage} totalPost={posts.length} paginate={paginate} currentPage={currentPage} />
+            <Pagination pages={postPerpage} totalPost={filterDivision.length} paginate={paginate} currentPage={currentPage} />
           </div>
         </div>
       </div>

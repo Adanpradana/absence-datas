@@ -25,7 +25,7 @@ const Filter = ({ setSearch, posts, setFilter }) => {
       <h3>Employee Details</h3>
       <form action="" method="get">
         <select name="Divisi" id="" onChange={divisionHandler}>
-          <option value="disabled" disabled>
+          <option value="disabled" selected disabled>
             -- Select Division --
           </option>
           <option value="All">All</option>

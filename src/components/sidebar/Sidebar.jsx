@@ -1,4 +1,4 @@
-import datas from "../data/SidebarData";
+import datas from "../../data/SidebarData";
 import Navigation from "./Navigation";
 
 const Sidebar = () => {

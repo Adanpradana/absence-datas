@@ -1,13 +1,15 @@
 import { Routes, Route } from "react-router-dom";
-import "./App.css";
+import "./css/App.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./components/sidebar/Sidebar";
 
-import Home from "./components/Home";
-import Employee from "./components/Employee";
-import Details from "./components/Sidebar-component/Details";
-import Division from "./components/Division";
-import Absence from "./components/Absence";
+import Home from "./components/pages/home/Home";
+import Employee from "./components/pages/employee/employee-details/Employee";
+import Details from "./components/pages/employee/employee-details/details/Details";
+import Division from "./components/pages/employee/division/Division";
+import Absence from "./components/pages/absence/Absence";
+import JobPosition from "./components/pages/employee/job-position/JobPosition";
+import WorkSchedule from "./components/pages/employee/work-schedule/WorkSchedule";
 
 function App() {
   return (
@@ -20,8 +22,8 @@ function App() {
             <Route path="employee" element={<Employee />}></Route>
             <Route path="employee/:dbg_pegawaipegawai_pin" element={<Details />} />
             <Route path="division" element={<Division />} />
-            <Route path="job-position" />
-            <Route path="schedule" />
+            <Route path="job-position" element={<JobPosition />} />
+            <Route path="work-schedule" element={<WorkSchedule />} />
           </Route>
           <Route path="absence" element={<Absence />} />
           <Route path="logout" />

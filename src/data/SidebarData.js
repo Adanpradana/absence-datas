@@ -1,11 +1,11 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
-import Absence from "../components/Absence";
-import Division from "../components/Division";
-import Employee from "../components/Employee";
-import Home from "../components/Home";
-import JobPosition from "../components/JobPosition";
-import Details from "../components/Sidebar-component/Details";
-import WorkSchedule from "../components/WorkSchedule";
+import Absence from "../components/pages/absence/Absence";
+import Division from "../components/pages/employee/division/Division";
+import Employee from "../components/pages/employee/employee-details/Employee";
+import Home from "../components/pages/home/Home";
+import JobPosition from "../components/pages/employee/job-position/JobPosition";
+import Details from "../components/pages/employee/employee-details/details/Details";
+import WorkSchedule from "../components/pages/employee/work-schedule/WorkSchedule";
 
 const SidebarData = [
   {

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import avatar from "../../assets/avatar-profile.png";
+import avatar from "../../../../../../src/assets/avatar-profile.png";
 
 const Details = () => {
   const [data, setData] = useState({});
