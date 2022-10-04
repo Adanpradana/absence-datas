@@ -2,7 +2,7 @@ import { Children } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Link } from "react-router-dom";
 
-const TableBody = ({ posts, loading, search }) => {
+const TableBody = ({ posts, loading }) => {
   if (loading) {
     return (
       <>

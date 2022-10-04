@@ -9,7 +9,6 @@ const Employee = () => {
   const [postPerpage] = useState(8);
   const [loading, setLoading] = useState(true);
   const [tableHeader, setTableHeader] = useState([]);
-  const [pages, setPages] = useState("");
   const [posts, setPost] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
